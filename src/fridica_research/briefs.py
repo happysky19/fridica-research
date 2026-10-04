@@ -41,7 +41,7 @@ def explorer(ref: str, problem: str, brief: str, questions: list[str], findings:
     return fit([
         ("Study", problem), ("Brief", brief), ("Questions", "\n".join(f"- {q}" for q in questions)),
         ("Approaches already claimed by peers", peers),
-        ("Output format", "End the report with a `## Approaches` section: one line per viable approach, `- <slug>: <title> -- <why>`, slug `^[a-z0-9][a-z0-9-]{0,47}$`, most promising first."),
+        ("Output format", "End the report with a `## Approaches` section: one line per viable approach, `- <slug>: <title> -- <why>`, plain slug without backticks or bold markup matching `^[a-z0-9][a-z0-9-]{0,47}$`, most promising first."),
         ("Reference", f"ref: {ref}"),
     ], findings)
 
