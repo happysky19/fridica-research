@@ -54,6 +54,15 @@ def test_claim_settles_into_debate_with_persistent_pair():
         assert "needs contract decision" in a["instructions"]
 
 
+def test_explorer_brief_asks_what_the_sibling_repos_already_provide():
+    w = World()
+    w.start()
+    explore = [a for a in w.kinds("delegate") if a["role"] == "explorer"][0]
+    assert "what the sibling repos already provide" in explore["brief"]
+    assert "fridica: daemon, Slack, placement, egress" in explore["brief"]
+    assert "## Reuse before build" in explore["instructions"]
+
+
 def test_auditor_brief_contains_lower_layer_charter():
     w = World()
     w.to_audit()

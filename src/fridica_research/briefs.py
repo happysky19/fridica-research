@@ -46,6 +46,7 @@ def explorer(ref: str, problem: str, brief: str, questions: list[str], findings:
     peers = "\n".join(f"- {s}: claimed by a peer; do not propose it under another name" for s in sorted(peer_claims)) or "none"
     return fit([
         ("Study", problem), ("Brief", brief), ("Questions", "\n".join(f"- {q}" for q in questions)),
+        ("Reuse before build", "Name each concern in this problem in one phrase and report what the sibling repos already provide for it, before proposing new scaffolding. Give the owning repo and the existing mechanism, or say you searched and found none.\n" + "\n".join(CHARTERS)),
         ("Approaches already claimed by peers", peers),
         ("Output format", "End the report with a `## Approaches` section: one line per viable approach, `- <slug>: <title> -- <why>`, slug `^[a-z0-9][a-z0-9-]{0,47}$`, most promising first."),
         ("Reference", f"ref: {ref}"),

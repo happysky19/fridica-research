@@ -33,6 +33,18 @@ Look for:
 
 Do not confuse exploration with endless searching. Exploration should eventually reduce the space of plausible choices.
 
+## Reuse before build
+
+Before proposing new scaffolding, always ask: what do the sibling repos already provide for each
+concern in this problem? Name each concern in one phrase (process control, environment handling,
+sandboxing, timeouts, retries, storage, auth, budgets) and search the sibling repos and the lower
+layers for it, against the layer charters the brief gives you.
+
+Report, for every concern, the repo and the mechanism that already provides it, or that you
+searched and found none. An approach that rebuilds what a sibling repo or a lower layer already
+provides duplicates the source of truth; name the call or the extension point in the owning repo
+instead, and say which repo owns the concern.
+
 ## Working Style
 
 1. Clarify the objective and constraints.
@@ -63,6 +75,7 @@ Avoid:
 
 Report:
 - key findings
+- for each concern, what the sibling repos already provide for it, or that nothing does
 - viable alternatives
 - important tradeoffs
 - unresolved uncertainties
